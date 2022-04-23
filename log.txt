@@ -1,0 +1,4 @@
+2022-04-22 21:33:05	12895	0	[INFO]	[root]	./code/testlog.cpp:18	test macro
+2022-04-22 21:33:05	12895	0	[ERROR]	[root]	./code/testlog.cpp:20	test macro fmt error aa
+2022-04-22 21:33:05	12895	0	[ERROR]	[root]	./code/testlog.cpp:21	test macro fmt error aa
+2022-04-22 21:33:05	12895	0	[ERROR]	[root]	./code/testlog.cpp:22	test macro fmt error aa

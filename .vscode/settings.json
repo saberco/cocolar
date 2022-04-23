@@ -50,6 +50,8 @@
         "codecvt": "cpp",
         "ratio": "cpp",
         "iomanip": "cpp",
-        "map": "cpp"
+        "map": "cpp",
+        "iostream": "cpp",
+        "thread": "cpp"
     }
 }
