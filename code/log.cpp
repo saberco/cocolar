@@ -2,7 +2,6 @@
 #include<map>
 #include<functional>
 #include<time.h>
-
 namespace cocolar{
 
 //LogLevel
@@ -239,7 +238,7 @@ bool FileLogAppender::reopen(){
     if(m_filestream){
         m_filestream.close();
     }
-    m_filestream.open(m_filename);
+    m_filestream.open(m_filename, std::ios::app);
     return !!m_filestream;
 }
 FileLogAppender::FileLogAppender(const std::string& filename)
@@ -372,5 +371,32 @@ std::string LogFormatter::format(std::shared_ptr<Logger> logger,LogLevel::Level 
     }
     return ss.str();
 }
+
+
+Logger::ptr LoggerManage::getLogger(const std::string & name){
+    auto it = m_loggers.find(name);
+    return it == m_loggers.end() ? m_root : it->second;
+}
+
+void LoggerManage::init(){
+    
+}
+
+LoggerManage::LoggerManage(){
+    m_root.reset(new Logger);
+    m_root->addAppender(LogAppender::ptr (new StdoutLogAppender));
+
+    init();
+}
+
+
+
+
+
+
+
+
+
+
 
 }

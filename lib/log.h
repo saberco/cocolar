@@ -11,6 +11,10 @@
 #include<vector>
 #include <stdarg.h>
 #include <stdio.h>
+#include<map>
+#include"../lib/singleton.h"
+#include"../lib/utils.h"
+
 #define COCOLAR_LOG_LEVEL(logger, level) \
     if(logger->getLevel()<=level) \
         cocolar::LogEventWrap(cocolar::LogEvent::ptr(new cocolar::LogEvent(logger, level \
@@ -36,7 +40,7 @@
 #define COCOLAR_LOG_FMT_ERROR(logger, fmt, ...) COCOLAR_LOG_FMT_LEVEL(logger, cocolar::LogLevel::ERROR, fmt, __VA_ARGS__)
 #define COCOLAR_LOG_FMT_FATAL(logger, fmt, ...) COCOLAR_LOG_FMT_LEVEL(logger, cocolar::LogLevel::FATAL, fmt, __VA_ARGS__)
 
-
+#define COCOLAR_LOG_ROOT() cocolar::LoggerMgr::GetInstance()->getRoot()
 
 namespace cocolar{
 class Logger;
@@ -110,7 +114,7 @@ public:
     // %t   %thread_id  %m%n
     std::string format(std::shared_ptr<Logger> logger,LogLevel::Level level ,LogEvent::ptr event);
 public:
-    //虚基类
+    //虚基类，用来表示各种格式
     class FormatItem{
     public:
         typedef std::shared_ptr<FormatItem> ptr; 
@@ -126,7 +130,7 @@ private:
 
 
 
-//日志输入目的地
+//日志输出目的地
 class LogAppender{
 public:
     typedef std::shared_ptr<LogAppender> ptr;
@@ -134,6 +138,8 @@ public:
 
     virtual void log(std::shared_ptr<Logger> logger,LogLevel::Level level, LogEvent::ptr event)=0;
     void setFormatter(LogFormatter::ptr val){m_formatter = val;}
+    LogLevel::Level getLevel() const {return m_level;}
+    void setLevel(LogLevel::Level val){m_level = val;}
     LogFormatter::ptr getFormatter() const {return m_formatter;}
 protected:
     LogLevel::Level m_level;        //日志级别
@@ -195,6 +201,25 @@ private:
     std::string m_filename;
     std::ofstream m_filestream;
 };
+
+
+class LoggerManage{
+public:
+    LoggerManage();
+    Logger::ptr getLogger(const std::string & name);
+
+    void init();
+    Logger::ptr getRoot() const {return m_root;}
+    
+private:
+
+    std::map<std::string, Logger::ptr> m_loggers;
+    Logger::ptr m_root;
+
+
+};
+
+typedef cocolar::Singleton<LoggerManage> LoggerMgr;
 
 
 

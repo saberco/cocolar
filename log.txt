@@ -1,4 +1,14 @@
-2022-04-22 21:33:05	12895	0	[INFO]	[root]	./code/testlog.cpp:18	test macro
-2022-04-22 21:33:05	12895	0	[ERROR]	[root]	./code/testlog.cpp:20	test macro fmt error aa
-2022-04-22 21:33:05	12895	0	[ERROR]	[root]	./code/testlog.cpp:21	test macro fmt error aa
-2022-04-22 21:33:05	12895	0	[ERROR]	[root]	./code/testlog.cpp:22	test macro fmt error aa
+2022-04-25 14:52:19	ERROR	test macro fmt error aa
+2022-04-25 14:56:32	ERROR	test macro fmt error aa
+2022-04-25 14:56:41	ERROR	test macro fmt error aa
+2022-04-25 14:56:42	ERROR	test macro fmt error aa
+2022-04-25 14:56:43	ERROR	test macro fmt error aa
+2022-04-25 14:56:44	ERROR	test macro fmt error aa
+2022-04-25 14:56:45	ERROR	test macro fmt error aa
+2022-04-25 14:56:46	ERROR	test macro fmt error aa
+2022-04-25 14:56:47	ERROR	test macro fmt error aa
+2022-04-25 14:56:48	ERROR	test macro fmt error aa
+2022-04-25 14:56:49	ERROR	test macro fmt error aa
+2022-04-25 14:56:50	ERROR	test macro fmt error aa
+2022-04-25 14:56:51	ERROR	test macro fmt error aa
+2022-04-25 16:00:23	ERROR	test macro fmt error aa

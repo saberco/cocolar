@@ -52,6 +52,10 @@
         "iomanip": "cpp",
         "map": "cpp",
         "iostream": "cpp",
-        "thread": "cpp"
+        "thread": "cpp",
+        "cstring": "cpp",
+        "strstream": "cpp",
+        "complex": "cpp",
+        "cfenv": "cpp"
     }
 }
